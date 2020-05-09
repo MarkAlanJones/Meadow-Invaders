@@ -1,0 +1,22 @@
+﻿<Project Sdk="Meadow.Sdk/1.1.0">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>App</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Invaders\jooyetech_icon_01_invader.bmp" />
+    <EmbeddedResource Include="Invaders\jooyetech_icon_02_invader.bmp" />
+    <EmbeddedResource Include="Invaders\jooyetech_icon_03_invader.bmp" />
+    <EmbeddedResource Include="Invaders\jooyetech_icon_04_invader.bmp" />
+    <EmbeddedResource Include="Invaders\jooyetech_icon_05_invader.bmp" />
+    <EmbeddedResource Include="Invaders\jooyetech_icon_06_invader.bmp" />
+    <EmbeddedResource Include="Invaders\jooyetech_icon_07_invader.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Meadow.Foundation" Version="0.14.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Meadow.Foundation.Displays.TftSpi" Version="0.7.6" />
+  </ItemGroup>
+</Project>

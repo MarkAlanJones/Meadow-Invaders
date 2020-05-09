@@ -21,13 +21,13 @@ namespace MeadowInvaders
         public int width { get; set; }
         public int height { get; set; }
 
-        BitArray S1 { get; set; }
-        BitArray S2 { get; set; }
-        St7789 display { get; set; }
+        private BitArray S1 { get; set; }
+        private BitArray S2 { get; set; }
+        private DisplayTftSpiBase display { get; set; }
 
         public bool done { get { return posx > display.Width; } }
 
-        public SpriteWorker(BitArray s1, BitArray s2, int width, int height, int speed, Color color, St7789 display)
+        public SpriteWorker(BitArray s1, BitArray s2, int width, int height, int speed, Color color, DisplayTftSpiBase display)
         {
             S1 = s1;
             S2 = s2;
@@ -69,7 +69,7 @@ namespace MeadowInvaders
             DrawSprite(posx, posy, width, height, ba, color);
         }
 
-        void DrawSprite(int x, int y, int width, int height, BitArray sprite, Color c)
+        private void DrawSprite(int x, int y, int width, int height, BitArray sprite, Color c)
         {
             for (int i = 0; i < width; i++)
             {

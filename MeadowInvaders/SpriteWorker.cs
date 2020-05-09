@@ -7,8 +7,8 @@ namespace MeadowInvaders
 
     /// <summary>
     /// Encapsulate a Sprite that can flip between two images 
-    /// Moves it across the screen
-    /// and can synchronize with others to update teh display
+    /// Move it across the screen
+    /// and can synchronize with others to update the display
     /// </summary>
     public class SpriteWorker
     {

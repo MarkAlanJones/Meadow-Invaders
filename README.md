@@ -13,8 +13,8 @@ Once i figured out how to read the header, and process the actual bits, I found 
 This uses 8 times the memory, but it allows each pixel to be addressable in a boolean array. it does the bit unpacking for you. 
 I then bypassed the graphics library and just set the pixels directly.
 
-To support the 2 frame animation (each pair of invaders is the same alien with moving arms or legs), and display multiple bitmaps at the same time, 
-there is a list of sprites and each one updates the display before the frame is displayed. The sprite draws it's next frame based on its internal properties, 
+To support the 2 frame animation (each pair of invaders is the same alien with moving arms or legs), and display multiple bitmaps at the same time,
+there is a list of sprites and each one updates the display before the frame is displayed. The sprite draws its next frame based on its internal properties, 
 and when it reaches the right side the main loop resets the colour, speed and position and starts again. 
 
 So what started as a test of the graphics library turned into something different...

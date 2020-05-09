@@ -55,12 +55,12 @@ namespace MeadowInvaders
                 w.posy = rand.Next((int)display.Height - spriteH);
             }
 
+            sw.Restart();
             int frame = 0;
             while (true)
             {
                 display.Clear();
 
-                sw.Restart();
                 frame += 1;
                 // get all the sprites to draw before updating the display
                 foreach (var w in workers)

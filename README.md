@@ -3,7 +3,7 @@
 
 The meadow.foundation graphics library has methods to display 1 bit bitmaps in various colours on an LCD display.
 
-It seemed obvious to load bitmaps from a resouce file rather than hand coding them. BMP format seemed the obvious choice.
+It seemed obvious to load bitmaps from a resource file rather than hand coding them. BMP format seemed the obvious choice.
 
 Turns out BMP format is backwards to how meadow wanted them. In particular the meadow display assumes 0,0 is in the upper left, 
 but a BMP has the origin at the lower left. For some reason the 1bit encoding has 0 as on and 1 for off. (FF is 8 black bits 00 is 8 white bits).

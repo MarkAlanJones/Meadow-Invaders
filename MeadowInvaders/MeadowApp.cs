@@ -59,7 +59,7 @@ namespace MeadowInvaders
             int frame = 0;
             while (true)
             {
-                display.Clear();
+                graphics.Clear();
 
                 frame += 1;
                 // get all the sprites to draw before updating the display
@@ -75,7 +75,7 @@ namespace MeadowInvaders
                     }
                 }
 
-                display.Show();
+                graphics.Show();
 
                 Console.WriteLine($"{frame}) {frame * 1000.0 / sw.ElapsedMilliseconds:F} fps");
             }
@@ -103,7 +103,7 @@ namespace MeadowInvaders
 
             rand = new Random();
 
-            display.Clear();
+            graphics.Clear();
         }
 
         void GridTest(int size)
@@ -128,15 +128,15 @@ namespace MeadowInvaders
             for (int r = 0; r < rect.Length; r++)
                 rect[r] = (byte)rand.Next(255);
 
-            display.Clear();
+            graphics.Clear();
 
             for (int x = 0; x < display.Width; x += size)
             {
                 for (int y = 0; y < display.Height; y += size)
                 {
-                    display.DrawBitmap(x, y, (int)Math.Ceiling((double)size / 8), size, rect, RandColor());
+                    graphics.DrawBitmap(x, y, (int)Math.Ceiling((double)size / 8), size, rect, RandColor());
                     // Console.WriteLine($"{x} {y}");
-                    display.Show();
+                    graphics.Show();
                 }
             }
         }
@@ -155,7 +155,7 @@ namespace MeadowInvaders
                 for (int i = 0; i < 8; i++)
                     flipinv[r * 8 + i] = Reverse((byte)~inv[(39 - r) * 8 + i]);
 
-            display.Clear();
+            graphics.Clear();
 
             for (int x = 0; x < display.Width; x += 64)
             {
@@ -164,7 +164,7 @@ namespace MeadowInvaders
                     //display.DrawBitmap(x, y, 64 / 8, 40, flipinv, RandColor());
                     DrawBitmap(x, y, 64, 40, flipinv, RandColor());
                     // Console.WriteLine($"{x} {y}");
-                    display.Show();
+                    graphics.Show();
                 }
             }
         }

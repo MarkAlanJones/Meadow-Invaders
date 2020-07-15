@@ -14,7 +14,7 @@
     <EmbeddedResource Include="Invaders\jooyetech_icon_07_invader.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Meadow.Foundation" Version="0.15.1" />
+    <PackageReference Include="Meadow.Foundation" Version="0.17.0" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Meadow.Foundation.Displays.TftSpi" Version="0.7.7" />

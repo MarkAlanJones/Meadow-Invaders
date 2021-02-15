@@ -23,11 +23,11 @@ namespace MeadowInvaders
 
         private BitArray S1 { get; set; }
         private BitArray S2 { get; set; }
-        private DisplayTftSpiBase display { get; set; }
+        private TftSpiBase display { get; set; }
 
         public bool done { get { return posx > display.Width; } }
 
-        public SpriteWorker(BitArray s1, BitArray s2, int width, int height, int speed, Color color, DisplayTftSpiBase display)
+        public SpriteWorker(BitArray s1, BitArray s2, int width, int height, int speed, Color color, TftSpiBase display)
         {
             S1 = s1;
             S2 = s2;

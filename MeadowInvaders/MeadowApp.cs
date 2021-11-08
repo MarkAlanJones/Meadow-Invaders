@@ -96,10 +96,11 @@ namespace MeadowInvaders
                 resetPin: Device.Pins.D00,
                 width: displayWidth, height: displayHeight);
 
-            graphics = new GraphicsLibrary(display);
-
-            graphics.Rotation = GraphicsLibrary.RotationType._270Degrees;
-            graphics.Stroke = 1;
+            graphics = new GraphicsLibrary(display)
+            {
+                Rotation = RotationType._270Degrees,
+                Stroke = 1
+            };
 
             rand = new Random();
 
@@ -200,7 +201,8 @@ namespace MeadowInvaders
                 for (int j = 0; j < height; j++)
                 {
                     if (ba[i + width * j])
-                        display.DrawPixel(x + i, y + j, c);
+                        // display.DrawPixel(x + i, y + j, c);
+                        graphics.DrawPixel(x + i, y + j, c);
                 }
             }
         }

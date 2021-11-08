@@ -9,6 +9,7 @@ namespace MeadowInvaders
     /// Encapsulate a Sprite that can flip between two images 
     /// Move it across the screen
     /// and can synchronize with others to update the display
+    /// Writes to display dorectly avoiding graphicsLibrary
     /// </summary>
     public class SpriteWorker
     {
@@ -69,13 +70,14 @@ namespace MeadowInvaders
             DrawSprite(posx, posy, width, height, ba, color);
         }
 
+        // Display wraps now, add edge detect
         private void DrawSprite(int x, int y, int width, int height, BitArray sprite, Color c)
         {
             for (int i = 0; i < width; i++)
             {
                 for (int j = 0; j < height; j++)
                 {
-                    if (sprite[i + width * j])
+                    if (sprite[i + width * j] && (x + i) >= 0 && (x + i) < display.Width)
                         display.DrawPixel(x + i, y + j, c);
                 }
             }

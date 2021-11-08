@@ -24,7 +24,7 @@ hope they are freely usable :wink:
 
 ![Space invaders](https://i.imgur.com/Tqm8eg9.png)
 
-*NOTE* this is not a game - it is currently a non interactiive graphics demo
+*NOTE* this is not a game - it is currently a non interactive graphics demo
 
 use standard wiring for Meadow F7 and LCD
 ![Meadow Frizing](/MeadowInvaders/st7789_fritzing.jpg)

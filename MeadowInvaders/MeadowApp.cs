@@ -14,7 +14,7 @@ namespace MeadowInvaders
     public class MeadowApp : App<F7Micro, MeadowApp>
     {
         St7789 display;
-        GraphicsLibrary graphics;
+        MicroGraphics  graphics;
         const int displayWidth = 240;
         const int displayHeight = 240;
 
@@ -85,7 +85,7 @@ namespace MeadowInvaders
         {
             Console.WriteLine("Initializing...");
 
-            var config = new SpiClockConfiguration(48000, SpiClockConfiguration.Mode.Mode3);
+            var config = new SpiClockConfiguration(St7789.DefaultSpiBusSpeed, SpiClockConfiguration.Mode.Mode3);
             var spiBus = Device.CreateSpiBus(Device.Pins.SCK, Device.Pins.MOSI, Device.Pins.MISO, config);
 
             display = new St7789(
@@ -96,7 +96,7 @@ namespace MeadowInvaders
                 resetPin: Device.Pins.D00,
                 width: displayWidth, height: displayHeight);
 
-            graphics = new GraphicsLibrary(display)
+            graphics = new MicroGraphics(display)
             {
                 Rotation = RotationType._270Degrees,
                 Stroke = 1

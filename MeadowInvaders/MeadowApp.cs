@@ -11,7 +11,7 @@ using System.Diagnostics;
 
 namespace MeadowInvaders
 {
-    public class MeadowApp : App<F7Micro, MeadowApp>
+    public class MeadowApp : App<F7FeatherV1, MeadowApp>
     {
         St7789 display;
         MicroGraphics  graphics;

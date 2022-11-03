@@ -15,10 +15,10 @@
     <EmbeddedResource Include="Invaders\jooyetech_icon_07_invader.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Meadow.F7" Version="0.31.1" />
-    <PackageReference Include="Meadow.Foundation" Version="0.33.1" />
+    <PackageReference Include="Meadow.F7" Version="0.32.1" />
+    <PackageReference Include="Meadow.Foundation" Version="0.34.1" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Meadow.Foundation.Displays.TftSpi" Version="0.7.58" />
+    <PackageReference Include="Meadow.Foundation.Displays.TftSpi" Version="0.7.61" />
   </ItemGroup>
 </Project>

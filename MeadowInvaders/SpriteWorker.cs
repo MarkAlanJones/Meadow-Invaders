@@ -1,5 +1,5 @@
 ﻿using Meadow.Foundation;
-using Meadow.Foundation.Displays.TftSpi;
+using Meadow.Foundation.Displays;
 using System.Collections;
 
 namespace MeadowInvaders

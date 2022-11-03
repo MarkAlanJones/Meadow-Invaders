@@ -1,17 +1,18 @@
 ﻿using Meadow;
 using Meadow.Devices;
 using Meadow.Foundation;
-using Meadow.Foundation.Displays.TftSpi;
+using Meadow.Foundation.Displays;
 using Meadow.Foundation.Graphics;
 using Meadow.Hardware;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace MeadowInvaders
 {
-    public class MeadowApp : App<F7FeatherV1, MeadowApp>
+    public class MeadowApp : App<F7FeatherV1>
     {
         St7789 display;
         MicroGraphics  graphics;
@@ -81,7 +82,7 @@ namespace MeadowInvaders
             }
         }
 
-        void Initialize()
+        public override Task Initialize()
         {
             Console.WriteLine("Initializing...");
 
@@ -103,8 +104,8 @@ namespace MeadowInvaders
             };
 
             rand = new Random();
-
             graphics.Clear();
+            return base.Initialize();
         }
 
         void GridTest(int size)
@@ -123,24 +124,24 @@ namespace MeadowInvaders
         }
 
         // lower level move rectangle bitmap to display bypassing graphics library
-        void GridBitmapTest(int size)
-        {
-            byte[] rect = new byte[size * (int)Math.Ceiling((double)size / 8)];
-            for (int r = 0; r < rect.Length; r++)
-                rect[r] = (byte)rand.Next(255);
+        //void GridBitmapTest(int size)
+        //{
+        //    byte[] rect = new byte[size * (int)Math.Ceiling((double)size / 8)];
+        //    for (int r = 0; r < rect.Length; r++)
+        //        rect[r] = (byte)rand.Next(255);
 
-            graphics.Clear();
+        //    graphics.Clear();
 
-            for (int x = 0; x < display.Width; x += size)
-            {
-                for (int y = 0; y < display.Height; y += size)
-                {
-                    graphics.DrawBitmap(x, y, (int)Math.Ceiling((double)size / 8), size, rect, RandColor());
-                    // Console.WriteLine($"{x} {y}");
-                    graphics.Show();
-                }
-            }
-        }
+        //    for (int x = 0; x < display.Width; x += size)
+        //    {
+        //        for (int y = 0; y < display.Height; y += size)
+        //        {
+        //            graphics.DrawBitmap(x, y, (int)Math.Ceiling((double)size / 8), size, rect, RandColor());
+        //             Console.WriteLine($"{x} {y}");
+        //            graphics.Show();
+        //        }
+        //    }
+        //}
 
         void InvaderTest(int alien)
         {

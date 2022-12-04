@@ -28,12 +28,9 @@ namespace MeadowInvaders
 
         Dictionary<int, BitArray> sprites = new Dictionary<int, BitArray>();
 
-        public MeadowApp()
+       public override Task Run()
         {
-            Stopwatch sw = new Stopwatch();
-            Initialize();
-
-            sw.Start();
+            var sw = Stopwatch.StartNew();
 
             // load sprites
             for (int i = 1; i < 8; i++)
@@ -58,7 +55,7 @@ namespace MeadowInvaders
 
             sw.Restart();
             int frame = 0;
-            while (true)
+            while (graphics != null)
             {
                 graphics.Clear();
 
@@ -80,6 +77,8 @@ namespace MeadowInvaders
 
                 Console.WriteLine($"{frame}) {frame * 1000.0 / sw.ElapsedMilliseconds:F} fps");
             }
+
+            return base.Run();
         }
 
         public override Task Initialize()

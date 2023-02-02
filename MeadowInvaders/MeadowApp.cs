@@ -98,7 +98,7 @@ namespace MeadowInvaders
 
             graphics = new MicroGraphics(display)
             {
-                Rotation = RotationType._270Degrees,
+                Rotation = RotationType._180Degrees,
                 Stroke = 1
             };
 

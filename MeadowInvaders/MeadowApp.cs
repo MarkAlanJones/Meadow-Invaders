@@ -89,7 +89,6 @@ namespace MeadowInvaders
             var spiBus = Device.CreateSpiBus(Device.Pins.SCK, Device.Pins.MOSI, Device.Pins.MISO, config);
 
             display = new St7789(
-                device: Device,
                 spiBus: spiBus,
                 chipSelectPin: null,
                 dcPin: Device.Pins.D01,

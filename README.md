@@ -30,3 +30,4 @@ use standard wiring for Meadow F7 and LCD
 ![Meadow Frizing](/MeadowInvaders/st7789_fritzing.jpg)
 
 UPDATE: RC1 can achieve 9.23 fps if JIT is enabled
+RC3-1 gs 9.49 fps - just slightly fasteer

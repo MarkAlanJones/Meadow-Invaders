@@ -31,4 +31,5 @@ use standard wiring for Meadow F7 and LCD
 
 UPDATE: RC1 can achieve 9.23 fps if JIT is enabled
 
-RC3-1 gets 9.49 fps - just slightly faster  (no noticible improvements 1.0-1.5)
+RC3-1 gets 9.49 fps - just slightly faster
+1.5 gets 9.52 fps - slighter faster but not significant

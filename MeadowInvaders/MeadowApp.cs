@@ -1,9 +1,7 @@
 ﻿using Meadow;
 using Meadow.Devices;
-using Meadow.Foundation;
 using Meadow.Foundation.Displays;
 using Meadow.Foundation.Graphics;
-using Meadow.Hardware;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -49,8 +47,8 @@ namespace MeadowInvaders
             // position
             foreach (var w in workers)
             {
-                w.posx = -spriteW; // start offscreen
-                w.posy = rand.Next((int)display.Height - spriteH);
+                w.Posx = -spriteW; // start offscreen
+                w.Posy = rand.Next((int)display.Height - spriteH);
             }
 
             sw.Restart();
@@ -64,12 +62,12 @@ namespace MeadowInvaders
                 foreach (var w in workers)
                 {
                     w.Drawframe(frame);
-                    if (w.done)
+                    if (w.Done)
                     {
-                        w.posx = -w.width;
-                        w.color = RandColor();
-                        w.speed = rand.Next(5, 25);
-                        w.posy = rand.Next((int)display.Height - spriteH);
+                        w.Posx = -w.Width;
+                        w.Color = RandColor();
+                        w.Speed = rand.Next(5, 25);
+                        w.Posy = rand.Next((int)display.Height - spriteH);
                     }
                 }
 

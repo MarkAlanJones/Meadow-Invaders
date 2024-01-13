@@ -1,10 +1,9 @@
-﻿using Meadow.Foundation;
+﻿using Meadow;
 using Meadow.Foundation.Displays;
 using System.Collections;
 
 namespace MeadowInvaders
 {
-
     /// <summary>
     /// Encapsulate a Sprite that can flip between two images 
     /// Move it across the screen
@@ -13,32 +12,32 @@ namespace MeadowInvaders
     /// </summary>
     public class SpriteWorker
     {
-        public int speed { get; set; }
-        public Color color { get; set; }
+        public int Speed { get; set; }
+        public Color Color { get; set; }
 
-        public int posx { get; set; }
-        public int posy { get; set; }
+        public int Posx { get; set; }
+        public int Posy { get; set; }
 
-        public int width { get; set; }
-        public int height { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
 
         private BitArray S1 { get; set; }
         private BitArray S2 { get; set; }
-        private TftSpiBase display { get; set; }
+        private TftSpiBase Display { get; set; }
 
-        public bool done { get { return posx > display.Width; } }
+        public bool Done { get { return Posx > Display.Width; } }
 
         public SpriteWorker(BitArray s1, BitArray s2, int width, int height, int speed, Color color, TftSpiBase display)
         {
             S1 = s1;
             S2 = s2;
-            this.speed = speed;
-            this.color = color;
-            this.width = width;
-            this.height = height;
-            posx = 0;
-            posy = 0;
-            this.display = display;
+            Speed = speed;
+            Color = color;
+            Width = width;
+            Height = height;
+            Posx = 0;
+            Posy = 0;
+            Display = display;
         }
 
         // Update the display
@@ -49,7 +48,7 @@ namespace MeadowInvaders
 
             // move ?
             if (S2 == null || !IsOdd(frame))
-                posx += speed;
+                Posx += Speed;
         }
 
         private BitArray getBA(int frame)
@@ -67,7 +66,7 @@ namespace MeadowInvaders
 
         private void Draw(BitArray ba)
         {
-            DrawSprite(posx, posy, width, height, ba, color);
+            DrawSprite(Posx, Posy, Width, Height, ba, Color);
         }
 
         // Display wraps now, add edge detect
@@ -77,8 +76,8 @@ namespace MeadowInvaders
             {
                 for (int j = 0; j < height; j++)
                 {
-                    if (sprite[i + width * j] && (x + i) >= 0 && (x + i) < display.Width)
-                        display.DrawPixel(x + i, y + j, c);
+                    if (sprite[i + width * j] && (x + i) >= 0 && (x + i) < Display.Width)
+                        Display.DrawPixel(x + i, y + j, c);
                 }
             }
         }

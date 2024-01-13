@@ -53,44 +53,42 @@ namespace MeadowInvaders
             var assembly = Assembly.GetExecutingAssembly();
             var resourceName = $"MeadowInvaders.{filename}";
 
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            using Stream stream = assembly.GetManifestResourceStream(resourceName);
+            using BinaryReader reader = new BinaryReader(stream);
+
+            var fh = new BITMAPFILEHEADER()
             {
-                using (BinaryReader reader = new BinaryReader(stream))
-                {
-                    var fh = new BITMAPFILEHEADER()
-                    {
-                        bfType = reader.ReadUInt16(),
-                        bfSize = reader.ReadUInt32(),
-                        bfReserved1 = reader.ReadUInt16(),
-                        bfReserved2 = reader.ReadUInt16(),
-                        bfOffBits = reader.ReadUInt32()
-                    };
-                    var ih = new BITMAPINFOHEADER()
-                    {
-                        biSize = reader.ReadUInt32(),
-                        biWidth = reader.ReadInt32(),
-                        biHeight = reader.ReadInt32(),
-                        biPlanes = reader.ReadUInt16(),
-                        biBitCount = reader.ReadUInt16(),
-                        biCompression = (BitmapCompressionMode)reader.ReadUInt32(),
-                        biSizeImage = reader.ReadUInt32(),
-                        biXPelsPerMeter = reader.ReadInt32(),
-                        biYPelsPerMeter = reader.ReadInt32(),
-                        biClrUsed = reader.ReadUInt32(),
-                        biClrImportant = reader.ReadUInt32()
-                    };
+                bfType = reader.ReadUInt16(),
+                bfSize = reader.ReadUInt32(),
+                bfReserved1 = reader.ReadUInt16(),
+                bfReserved2 = reader.ReadUInt16(),
+                bfOffBits = reader.ReadUInt32()
+            };
 
-                    if (ih.biCompression != BitmapCompressionMode.BI_RGB)
-                        Console.WriteLine($"WARN not RGB {ih.biCompression}");
+            var ih = new BITMAPINFOHEADER()
+            {
+                biSize = reader.ReadUInt32(),
+                biWidth = reader.ReadInt32(),
+                biHeight = reader.ReadInt32(),
+                biPlanes = reader.ReadUInt16(),
+                biBitCount = reader.ReadUInt16(),
+                biCompression = (BitmapCompressionMode)reader.ReadUInt32(),
+                biSizeImage = reader.ReadUInt32(),
+                biXPelsPerMeter = reader.ReadInt32(),
+                biYPelsPerMeter = reader.ReadInt32(),
+                biClrUsed = reader.ReadUInt32(),
+                biClrImportant = reader.ReadUInt32()
+            };
 
-                    Console.WriteLine($"{ih.biWidth} x {ih.biHeight}  {ih.biBitCount} bits {ih.biSizeImage} bytes: start {fh.bfOffBits}");
+            if (ih.biCompression != BitmapCompressionMode.BI_RGB)
+                Console.WriteLine($"WARN not RGB {ih.biCompression}");
 
-                    stream.Position = 0;
-                    var header = reader.ReadBytes((int)fh.bfOffBits);
+            Console.WriteLine($"{ih.biWidth} x {ih.biHeight}  {ih.biBitCount} bits {ih.biSizeImage} bytes: start {fh.bfOffBits}");
 
-                    return reader.ReadBytes(ih.biWidth / 8 * ih.biHeight);
-                }
-            }
+            stream.Position = 0;
+            var header = reader.ReadBytes((int)fh.bfOffBits);
+
+            return reader.ReadBytes(ih.biWidth / 8 * ih.biHeight);
         }
 
         public static int[] LoadDimensions(string filename)
@@ -98,36 +96,34 @@ namespace MeadowInvaders
             var assembly = Assembly.GetExecutingAssembly();
             var resourceName = $"MeadowInvaders.{filename}";
 
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            {
-                using (BinaryReader reader = new BinaryReader(stream))
-                {
-                    var fh = new BITMAPFILEHEADER()
-                    {
-                        bfType = reader.ReadUInt16(),
-                        bfSize = reader.ReadUInt32(),
-                        bfReserved1 = reader.ReadUInt16(),
-                        bfReserved2 = reader.ReadUInt16(),
-                        bfOffBits = reader.ReadUInt32()
-                    };
-                    var ih = new BITMAPINFOHEADER()
-                    {
-                        biSize = reader.ReadUInt32(),
-                        biWidth = reader.ReadInt32(),
-                        biHeight = reader.ReadInt32(),
-                        biPlanes = reader.ReadUInt16(),
-                        biBitCount = reader.ReadUInt16(),
-                        biCompression = (BitmapCompressionMode)reader.ReadUInt32(),
-                        biSizeImage = reader.ReadUInt32(),
-                        biXPelsPerMeter = reader.ReadInt32(),
-                        biYPelsPerMeter = reader.ReadInt32(),
-                        biClrUsed = reader.ReadUInt32(),
-                        biClrImportant = reader.ReadUInt32()
-                    };
+            using Stream stream = assembly.GetManifestResourceStream(resourceName);
+            using BinaryReader reader = new BinaryReader(stream);
 
-                    return new int[] { ih.biWidth, ih.biHeight };
-                }
-            }
+            var fh = new BITMAPFILEHEADER()
+            {
+                bfType = reader.ReadUInt16(),
+                bfSize = reader.ReadUInt32(),
+                bfReserved1 = reader.ReadUInt16(),
+                bfReserved2 = reader.ReadUInt16(),
+                bfOffBits = reader.ReadUInt32()
+            };
+
+            var ih = new BITMAPINFOHEADER()
+            {
+                biSize = reader.ReadUInt32(),
+                biWidth = reader.ReadInt32(),
+                biHeight = reader.ReadInt32(),
+                biPlanes = reader.ReadUInt16(),
+                biBitCount = reader.ReadUInt16(),
+                biCompression = (BitmapCompressionMode)reader.ReadUInt32(),
+                biSizeImage = reader.ReadUInt32(),
+                biXPelsPerMeter = reader.ReadInt32(),
+                biYPelsPerMeter = reader.ReadInt32(),
+                biClrUsed = reader.ReadUInt32(),
+                biClrImportant = reader.ReadUInt32()
+            };
+
+            return new int[] { ih.biWidth, ih.biHeight };
         }
     }
 }

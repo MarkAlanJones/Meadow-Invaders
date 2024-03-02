@@ -2,6 +2,7 @@
 using Meadow.Devices;
 using Meadow.Foundation.Displays;
 using Meadow.Foundation.Graphics;
+using Meadow.Peripherals.Displays;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,11 +21,11 @@ namespace MeadowInvaders
         int spriteW;
         int spriteH;
 
-        List<SpriteWorker> workers = new List<SpriteWorker>();
+        readonly List<SpriteWorker> workers = new List<SpriteWorker>();
 
         Random rand;
 
-        Dictionary<int, BitArray> sprites = new Dictionary<int, BitArray>();
+        readonly Dictionary<int, BitArray> sprites = new Dictionary<int, BitArray>();
 
        public override Task Run()
         {

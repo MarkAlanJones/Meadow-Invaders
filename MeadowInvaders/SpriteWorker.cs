@@ -43,7 +43,7 @@ namespace MeadowInvaders
         // Update the display
         public void Drawframe(int frame)
         {
-            BitArray ba = getBA(frame);
+            BitArray ba = GetBA(frame);
             Draw(ba);
 
             // move ?
@@ -51,7 +51,7 @@ namespace MeadowInvaders
                 Posx += Speed;
         }
 
-        private BitArray getBA(int frame)
+        private BitArray GetBA(int frame)
         {
             BitArray ba = S1;
             if (S2 != null && IsOdd(frame))

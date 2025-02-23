@@ -38,3 +38,5 @@ RC3-1 gets 9.49 fps - just slightly faster
 1.9 **Way Faster** - 24.85 fps after 2500 frames a 2.5x increase
 
 1.14 - 25.21 fps - half a frame faster
+
+2.003 - 25.42 fps - slightly faster
